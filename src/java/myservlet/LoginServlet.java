@@ -34,13 +34,13 @@ public class LoginServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+        try {
             /* TODO output your page here. You may use following sample code. */
+
             String email = request.getParameter("txtEmail");
             String password = request.getParameter("txtPassword");
             String save = request.getParameter("savelogin");
             Account acc = null;
-            try {
                 if (email == null || email.equals("") || password == null || password.equals("")) {
                     Cookie[] c = request.getCookies();
                     String token = "";
@@ -69,6 +69,7 @@ public class LoginServlet extends HttpServlet {
                         if (acc.getRole() == 1) {
                             if(session != null) {
                                 session.setAttribute("name", acc.getFullname());
+                                System.out.println(session.getAttribute("name"));
                                 session.setAttribute("phone", acc.getPhone());
                                 session.setAttribute("email", email);
                                 session.setAttribute("password", password);
@@ -85,6 +86,7 @@ public class LoginServlet extends HttpServlet {
                         } else {
                             if (session != null) {
                                 session.setAttribute("name", acc.getFullname());
+                                System.out.println(acc.getFullname());
                                 session.setAttribute("phone", acc.getPhone());
                                 session.setAttribute("email", email);
                                 session.setAttribute("password", password);
@@ -109,7 +111,7 @@ public class LoginServlet extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -122,7 +124,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -136,7 +138,7 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }

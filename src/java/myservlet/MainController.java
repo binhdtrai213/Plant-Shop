@@ -31,81 +31,57 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+         {
             /* TODO output your page here. You may use following sample code. */
             String action=request.getParameter("action");
             String url="index.jsp";
-            switch(action) {
-                case "login":
-                    url = "LoginServlet";
-                    break;
-                case "register":
-                    url = "registerServlet";
-                    break;
-                case "search":
-                    url = "index.jsp";
-                    break;
-                case "logout":
-                    url = "LogoutServlet";
-                    break;
-                case "edit":
-                    url = "EditAccountServlet";
-                    break;
-                case "addtocart":
-                    url = "AddToCartServlet";
-                    break;
-                case "viewcart":
-                    url = "ViewCart.jsp";
-                    break;
-                case "update":
-                    url = "UpdateCartServlet";
-                    break;
-                case "delete":
-                    url = "DeleteCartServlet";
-                    break;
-                case "saveOrder":
-                    url = "SaveCartServlet";
-                    break;
-                case "Filter":
-                    url = "FilterOrderServlet";
-                    break;
-                case "manageAcc":
-                    url = "ManageAccountServlet";
-                    break;
-                case "updateStatusAccount":
-                    url = "UpdateStatusAccountServlet";
-                    break;
-                case "searchAccount":
-                    url = "SearchAccountServlet";
-                    break;
-                case "manageOrder":
-                    url = "ManageOrderServlet";
-                    break;
-                case "updateStatusOrder":
-                    url = "UpdateStatusOrderServlet";
-                    break;
-                case "searchOrder":
-                    url = "SearchOrderServlet";
-                    break;
-                case "managePlant":
-                    url = "ManagePlantServlet";
-                    break;
-                case "updateStatusPlant":
-                    url = "UpdateStatusPlantServlet";
-                    break;
-                case "searchPlant":
-                    url = "SearchPlantServlet";
-                    break;
-                case "manageCategory":
-                    url = "ManageCategoryServlet";
-                    break;
-                case "searchCategory":
-                    url = "SearchCategoryServlet";
-                    break;
-                case "viewOrderDetail":
-                    url = "ViewOrderDetailServlet";
-                    break;
-            }
+             if (action.equals("login")) {
+                 url = "LoginServlet";
+             } else if (action.equals("register")) {
+                 url = "registerServlet";
+             } else if (action.equals("search")) {
+                 url = "index.jsp";
+             } else if (action.equals("logout")) {
+                 url = "LogoutServlet";
+             } else if (action.equals("edit")) {
+                 url = "EditAccountServlet";
+             } else if (action.equals("addtocart")) {
+                 url = "AddToCartServlet";
+             } else if (action.equals("viewcart")) {
+                 url = "ViewCart.jsp";
+             } else if (action.equals("update")) {
+                 url = "UpdateCartServlet";
+             } else if (action.equals("delete")) {
+                 url = "DeleteCartServlet";
+             } else if (action.equals("saveOrder")) {
+                 url = "SaveCartServlet";
+             } else if (action.equals("Filter")) {
+                 url = "FilterOrderServlet";
+             } else if (action.equals("manageAcc")) {
+                 url = "ManageAccountServlet";
+             } else if (action.equals("updateStatusAccount")) {
+                 url = "UpdateStatusAccountServlet";
+             } else if (action.equals("searchAccount")) {
+                 url = "SearchAccountServlet";
+             } else if (action.equals("manageOrder")) {
+                 url = "ManageOrderServlet";
+             } else if (action.equals("updateStatusOrder")) {
+                 url = "UpdateStatusOrderServlet";
+             } else if (action.equals("searchOrder")) {
+                 url = "SearchOrderServlet";
+             } else if (action.equals("managePlant")) {
+                 url = "ManagePlantServlet";
+             } else if (action.equals("updateStatusPlant")) {
+                 url = "UpdateStatusPlantServlet";
+             } else if (action.equals("searchPlant")) {
+                 url = "SearchPlantServlet";
+             } else if (action.equals("manageCategory")) {
+                 url = "ManageCategoryServlet";
+             } else if (action.equals("searchCategory")) {
+                 url = "SearchCategoryServlet";
+             } else if (action.equals("viewOrderDetail")) {
+                 url = "ViewOrderDetailServlet";
+             }
             RequestDispatcher rd=request.getRequestDispatcher(url);
             rd.forward(request, response);
         }

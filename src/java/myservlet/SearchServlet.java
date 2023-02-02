@@ -35,12 +35,13 @@ public class SearchServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+         {
             /* TODO output your page here. You may use following sample code. */
             String keyword = request.getParameter("txtsearch");
             String searchby = request.getParameter("searchby");
             ArrayList<Plant> list = PlantDAO.getPlants(keyword, searchby);
             if (list != null && !list.isEmpty()) {
+                PrintWriter out = response.getWriter();
                 out.println("<!DOCTYPE html>");
                 out.println("<html>");
                 out.println("<head>");
@@ -71,6 +72,7 @@ public class SearchServlet extends HttpServlet {
                 out.println("</body>");
                 out.println("</html>");
             } else {
+                PrintWriter out = response.getWriter();
                 out.println("nothing");
             }
         }

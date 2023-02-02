@@ -32,7 +32,6 @@ public class ChangeStatusOrderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession s = request.getSession();
             String name = (String) s.getAttribute("name");
@@ -48,7 +47,6 @@ public class ChangeStatusOrderServlet extends HttpServlet {
                 response.sendRedirect("personalPage.jsp");
             }
         }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

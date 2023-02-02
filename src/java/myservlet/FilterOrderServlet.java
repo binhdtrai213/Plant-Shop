@@ -30,7 +30,7 @@ public class FilterOrderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+         {
             /* TODO output your page here. You may use following sample code. */
             String d1 = request.getParameter("startDay");
             String d2 = request.getParameter("endDay");

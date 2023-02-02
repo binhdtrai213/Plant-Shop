@@ -16,7 +16,7 @@ public class DBUtils {
     public static Connection makeConnection() throws Exception {
         Connection cn=null;
         String IP="localhost";
-        String instanceName="LAPTOP-CKKTF2EA";
+        String instanceName="LAPTOP-SO63PML4";
         String port="1433";
         String uid="sa";
         String pwd="12345";

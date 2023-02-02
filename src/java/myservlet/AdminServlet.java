@@ -32,8 +32,9 @@ public class AdminServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+
             /* TODO output your page here. You may use following sample code. */
+            PrintWriter out = response.getWriter();
             out.println("Welcome admin");
             HttpSession s = request.getSession();
             Account acc = (Account)s.getAttribute("loginedUser");
@@ -45,7 +46,7 @@ public class AdminServlet extends HttpServlet {
             }
             else response.sendRedirect("index.html");
         }
-    }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

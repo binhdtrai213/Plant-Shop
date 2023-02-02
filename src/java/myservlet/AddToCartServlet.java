@@ -32,14 +32,14 @@ public class AddToCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+       {
             /* TODO output your page here. You may use following sample code. */
             String pid = request.getParameter("pid");
             HttpSession s = request.getSession(true);
             if(s != null) {
                 HashMap<String, Integer> cart = (HashMap<String, Integer>) s.getAttribute("cart");
                 if(cart == null) {
-                    cart = new HashMap<>();
+                    cart = new HashMap();
                     cart.put(pid, 1);
                 }
                 else {

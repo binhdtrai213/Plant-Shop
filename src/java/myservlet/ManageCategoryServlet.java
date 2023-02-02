@@ -34,7 +34,7 @@ public class ManageCategoryServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
+         {
             /* TODO output your page here. You may use following sample code. */
             try {
                 HttpSession s = request.getSession();

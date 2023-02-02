@@ -32,7 +32,6 @@ public class DeleteCartServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             String pid = request.getParameter("pid");
             HttpSession s = request.getSession();
@@ -48,7 +47,6 @@ public class DeleteCartServlet extends HttpServlet {
             }
             response.sendRedirect("ViewCart.jsp");
         }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
